@@ -38,4 +38,7 @@ def test_data(request):
 	return HttpResponse(json.dumps(test_data_dct))
 
 def index(request):
-	return HttpResponse(json.dumps({}))
+	file = "kpi_rec_sheet.xlsx"
+	test_data_dct = {}
+	test_data_dct = getData(STATIC_ROOT, file)
+	return HttpResponse(json.dumps(test_data_dct))
