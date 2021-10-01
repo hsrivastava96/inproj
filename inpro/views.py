@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse
 import os
 import openpyxl
 import json
-from inproj.settings import STATIC_DIR
+from inproj.settings import STATIC_ROOT
 # Create your views here.
 
 def getData(p, f):
@@ -34,7 +34,7 @@ def test_data(request):
 	# path = r"C:\Users\uic38334\Documents\interview_front_end"
 	file = "kpi_rec_sheet.xlsx"
 	test_data_dct = {}
-	test_data_dct = getData(STATIC_DIR, file)
+	test_data_dct = getData(STATIC_ROOT, file)
 	return HttpResponse(json.dumps(test_data_dct))
 
 def index(request):
