@@ -30,6 +30,14 @@ def getData(p, f):
 		output_dict[s_name] = rec_dict
 	return output_dict
 
+def excel_Download(request):
+	file_path = os.path.join(STATIC_ROOT, "kpi_rec_sheet.xlsx")
+	with open(file_path, "rb") as excel:
+	     data = excel.read()
+	response = HttpResponse(data, content_type='application/ms-excel')
+	response['Content-Disposition'] = 'attachment; filename="report.xlsx"'
+	return response
+
 def test_data(request):
 	# path = r"C:\Users\uic38334\Documents\interview_front_end"
 	file = "kpi_rec_sheet.xlsx"
